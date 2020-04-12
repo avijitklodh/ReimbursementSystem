@@ -8,6 +8,17 @@ public class Reimbursement extends Employee {
 	private String Status;
 	private int employeeId;
 	
+	
+	
+	public Reimbursement() {
+		super();
+	}
+
+	public Reimbursement(int employeeId, String name, String username, String password, boolean manager) {
+		super(employeeId, name, username, password, manager);
+		// TODO Auto-generated constructor stub
+	}
+
 	public Reimbursement(int employeeId, String name, String username, String password, boolean manager, int rId,
 			int amount, String description, String status, int employeeId2) {
 		super(employeeId, name, username, password, manager);

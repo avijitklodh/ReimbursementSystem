@@ -8,6 +8,12 @@ public class Employee {
 	private String password;
 	private boolean manager;
 	
+	
+	
+	public Employee() {
+		super();
+	}
+
 	public Employee(int employeeId, String name, String username, String password, boolean manager) {
 		super();
 		this.employeeId = employeeId;
