@@ -46,12 +46,16 @@ public class EmployeeDAOmaria implements EmployeeDAO {
 			String sql = "SELECT * FROM EMPLOYEE";
 					PreparedStatement ps = conn.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
-					List<Employee> employees = new ArrayList();
+					List<Employee> employees = new ArrayList<Employee>();
 				while(rs.next()) {
 					
 					Employee emp = new Employee();
 					
 					emp.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
+					emp.setName(rs.getString("NAME"));
+					emp.setUsername(rs.getString("USERNAME"));
+					emp.setPassword(rs.getString("PASSWORD"));
+					emp.setManager(rs.getBoolean("MANAGER"));
 					
 					employees.add(emp);
 				}
@@ -65,38 +69,107 @@ public class EmployeeDAOmaria implements EmployeeDAO {
 	}
 
 	public Employee getEmployeeById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Employee getEmployeeByName(String Name) {
-		// TODO Auto-generated method stub
-		return null;
+		try(Connection conn = ConncetionUtil.createConnection()){
+			String sql = "SELECT * FROM EMPLOYEE WHERE EMPLOYEE_ID = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			
+			Employee emp = new Employee();
+			
+			emp.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
+			emp.setName(rs.getString("NAME"));
+			emp.setUsername(rs.getString("USERNAME"));
+			emp.setPassword(rs.getString("PASSWORD"));
+			emp.setManager(rs.getBoolean("MANAGER"));
+			return emp;
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public Employee setEmployeeName(Employee employee) {
-		// TODO Auto-generated method stub
+		try(Connection conn = ConncetionUtil.createConnection()){
+			String sql = "UPDATE EMPLOYEE SET NAME = ? WHERE EMPLOYEE_ID = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, employee.getName());
+			ps.setInt(2, employee.getEmployeeId());
+			ps.execute();
+			
+			return employee;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	public Employee setEmployeeUsername(Employee employee) {
-		// TODO Auto-generated method stub
+		try(Connection conn = ConncetionUtil.createConnection()){
+			String sql = "UPDATE EMPLOYEE SET USERNAME = ? WHERE EMPLOYEE_ID = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, employee.getUsername());
+			ps.setInt(2, employee.getEmployeeId());
+			ps.execute();
+			
+			return employee;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	public Employee setEmployeePassword(Employee employee) {
-		// TODO Auto-generated method stub
+		try(Connection conn = ConncetionUtil.createConnection()){
+			String sql = "UPDATE EMPLOYEE SET PASSWORD = ? WHERE EMPLOYEE_ID = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, employee.getPassword());
+			ps.setInt(2, employee.getEmployeeId());
+			ps.execute();
+			return employee;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	public Employee setEmployeeManager(Employee employee) {
-		// TODO Auto-generated method stub
+		try(Connection conn = ConncetionUtil.createConnection()){
+			String sql = "UPDATE EMPLOYEE SET MANAGER = ? WHERE EMPLOYEE_ID = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setBoolean(1, employee.isManager());
+			ps.setInt(2, employee.getEmployeeId());
+			ps.execute();
+			
+			return employee;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	public boolean removeEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return false;
+		try(Connection conn = ConncetionUtil.createConnection()){
+			
+			String sql = "DELETE FROM EMPLOYEE WHERE EMPLOYEE_ID = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, employee.getEmployeeId());
+			
+			boolean success = ps.execute();
+			return success;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 	
 	
