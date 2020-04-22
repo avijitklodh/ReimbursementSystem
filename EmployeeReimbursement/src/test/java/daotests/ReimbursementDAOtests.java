@@ -28,27 +28,27 @@ public class ReimbursementDAOtests {
 //		System.out.println(edao.createEmployee(avi));
 //	}
 
-//	@Test
-//	public void createReimbursementtest() {
-//		System.out.println("this is createReimbursement test");
-//		Reimbursement rbsmt = new Reimbursement();
-//		rbsmt.setrId(1);
-//		rbsmt.setAmount(500);
-//		rbsmt.setDescription("Testing Reimbursement DAO impl");
-//		rbsmt.setStatus("pending");
-//		rbsmt.setEmployeeId(5);
-//		System.out.println(rdao.createReimbursement(rbsmt));
-//		
-////		System.out.println("this is createReimbursement test 2");
-//		Reimbursement rbsmt2 = new Reimbursement();
-//		rbsmt2.setrId(2);
-//		rbsmt2.setAmount(550);
-//		rbsmt2.setDescription("Testing Reimbursement DAO impl deletion");
-//		rbsmt2.setStatus("pending");
-//		rbsmt2.setEmployeeId(1);
-//		rdao.createReimbursement(rbsmt2);
-//	}
-//	
+	@Test
+	public void createReimbursementtest() {
+		System.out.println("this is createReimbursement test");
+		Reimbursement rbsmt = new Reimbursement();
+		rbsmt.setrId(1);
+		rbsmt.setAmount(500);
+		rbsmt.setDescription("Testing Reimbursement DAO impl");
+		rbsmt.setStatus("pending");
+		rbsmt.setEmployeeId(1);
+		System.out.println(rdao.createReimbursement(rbsmt));
+		
+//		System.out.println("this is createReimbursement test 2");
+		Reimbursement rbsmt2 = new Reimbursement();
+		rbsmt2.setrId(2);
+		rbsmt2.setAmount(550);
+		rbsmt2.setDescription("Testing Reimbursement DAO impl deletion");
+		rbsmt2.setStatus("pending");
+		rbsmt2.setEmployeeId(1);
+		rdao.createReimbursement(rbsmt2);
+	}
+	
 //	@Test
 //	public void getAllReimbursementtest() {
 //		System.out.println("this is getAllReimbursement test");
