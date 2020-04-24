@@ -11,7 +11,11 @@ public class LoginServiceImpl implements LoginService{
 	EmployeeDAO edao = new EmployeeDAOmaria();
 
 
-	public Employee loggedIn(String username, String password) {
+	public Employee loggedIn(Employee employee) {
+		
+			String username = employee.getUsername();
+			String password = employee.getPassword();
+			
 		
 			List <Employee> allEmployee= edao.getAllEmployee();
 		

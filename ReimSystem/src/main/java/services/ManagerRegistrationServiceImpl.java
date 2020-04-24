@@ -9,15 +9,15 @@ public class ManagerRegistrationServiceImpl implements ManagerRegistrationServic
 	EmployeeDAO edao = new EmployeeDAOmaria();
 
 	@Override
-	public Employee registerManager(String name, String username, String password) {
+	public Employee registerManager(Employee employee) {
 		
 		Employee emp = new Employee();
 		
 		emp.setEmployeeId(0);
 		emp.setManager(true);
-		emp.setName(name);
-		emp.setUsername(username);
-		emp.setPassword(password);
+		emp.setName(employee.getName());
+		emp.setUsername(employee.getUsername());
+		emp.setPassword(employee.getPassword());
 		
 		edao.createEmployee(emp);
 		

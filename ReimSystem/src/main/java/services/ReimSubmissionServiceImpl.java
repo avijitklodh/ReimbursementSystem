@@ -9,13 +9,13 @@ public class ReimSubmissionServiceImpl implements ReimSubmissionService{
 	ReimbursementDAO rdao = new ReimbursementDAOmaria();
 
 	@Override
-	public Reimbursement applyForReimbursement(int amount, String description, int employee_id) {
+	public Reimbursement applyForReimbursement(Reimbursement reimbursement) {
 		
 		Reimbursement reim = new Reimbursement();
 		
-		reim.setAmount(amount);
-		reim.setDescription(description);
-		reim.setEmployeeId(employee_id);
+		reim.setAmount(reimbursement.getAmount());
+		reim.setDescription(reimbursement.getDescription());
+		reim.setEmployeeId(reimbursement.getEmployeeId());
 		reim.setStatus("Pending");
 		rdao.createReimbursement(reim);
 		
