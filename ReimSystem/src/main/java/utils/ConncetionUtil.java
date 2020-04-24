@@ -10,16 +10,16 @@ import java.util.Properties;
 
 public class ConncetionUtil {
 	
-public static void main(String[] args) {
-		
-	}
 
 	public static Connection createConnection() {
 		
 		try {
 			Properties props = new Properties();
 			
-			FileInputStream in = new FileInputStream("src/main/resources/connection.properties");
+			Class.forName("org.mariadb.jdbc.Driver");
+			
+			FileInputStream in = 
+		new FileInputStream(ConncetionUtil.class.getClassLoader().getResource("connection.properties").getFile());
 			props.load(in);
 			
 			String details = props.getProperty("condetails");
@@ -33,6 +33,9 @@ public static void main(String[] args) {
 			e.printStackTrace();
 			return null;
 		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			return null;
 		}

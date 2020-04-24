@@ -6,10 +6,6 @@ public class Reimbursement extends Employee {
 	private int amount;
 	private String description;
 	private String Status;
-	private int employeeId;
-	
-	
-	
 	public Reimbursement() {
 		super();
 	}
@@ -20,13 +16,12 @@ public class Reimbursement extends Employee {
 	}
 
 	public Reimbursement(int employeeId, String name, String username, String password, boolean manager, int rId,
-			int amount, String description, String status, int employeeId2) {
+			int amount, String description, String status) {
 		super(employeeId, name, username, password, manager);
 		this.rId = rId;
 		this.amount = amount;
 		this.description = description;
 		Status = status;
-		employeeId = employeeId2;
 	}
 
 	public int getrId() {
@@ -61,21 +56,12 @@ public class Reimbursement extends Employee {
 		Status = status;
 	}
 
-	public int getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
-
 	@Override
 	public String toString() {
 		return "Reimbursement [rId=" + rId + ", amount=" + amount + ", description=" + description + ", Status="
-				+ Status + ", employeeId=" + employeeId + "]";
+				+ Status + "]";
 	}
-	
-	
+
 
 
 }
