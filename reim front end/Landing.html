@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+
+<html>
+
+    <head>
+        <title>KaibaCorp Reimbursement</title>
+    </head>
+
+    <body>
+
+            <div id = "login" >
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password"><br><br>
+                <button id = "loginBtn">Log in</button>
+                <button id = "signupBtn">Sign up</button>
+
+            </div>
+
+
+
+            <div id = "register" style = "display: none;">
+
+                <label for="rname">Name:</label>
+                <input type="text" id="rname" name="rname"><br><br>
+                <label for="rusername">Username:</label>
+                <input type="text" id="rusername" name="rusername"><br><br>
+                <label for="rpassword">Password:</label>
+                <input type="text" id="rpassword" name="rpassword"><br><br>
+                <button id = "registerBtn">Register</button>
+
+            </div>
+
+
+            <div id = "empShow" style = "display: none;" >
+
+                <button class = "logoutBtn">Log out</button>
+
+                <button id = "reimApplyBtn">Apply for new Reimbursement</button>
+
+                <table id = "empReimTbl" style="width:100%">
+                    <tr><th>Amount</th><th>Description</th><th>Status</th></tr>
+                </table>
+
+            </div>
+
+            <div id = "manaShow" style = "display: none;" >
+
+                <button class = "logoutBtn" >Log out</button>
+
+                <table id = "ManaReimTbl" style="width:100%">
+                    <tr><th>Amount</th><th>Description</th><th>Status</th><th>accept</th><th>Deny</th></tr>
+                </table>
+ 
+
+            </div>
+
+            <div id = "reimApply" style = "display: none;" >
+
+                <label for="amount">Amount:</label>
+                <input type="text" id="amount" name="amount"><br><br>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description"><br><br>
+                <button id = "submitReimBtn">Apply</button>
+
+            </div>
+
+            <div id = "accountSelector" style = "display: none;" >
+                <h4>What kind of account would you like to set up?</h4>
+                <button id = "empSelector">Employee</button><br><br>
+                <button id = "managSelector">Manager</button>
+            </div>
+
+            <div id = "managerVerfication" style = "display: none;">
+                <h4>Please enter the secret manager code</h4><br><br>
+                <label for="secret">secret:</label>
+                <input type="text" id="secret" name="description"><br><br>
+                <button id = "secretBtn">Enter secret code!</button>
+            </div>
+
+            <div id = "mregister" style = "display: none;">
+                    <h3>Manager Registration</h3>
+                <label for="mname">Name:</label>
+                <input type="text" id="mname" name="mname"><br><br>
+                <label for="musername">Username:</label>
+                <input type="text" id="musername" name="musername"><br><br>
+                <label for="mpassword">Password:</label>
+                <input type="text" id="mpassword" name="mpassword"><br><br>
+                <button id = "mregisterBtn">Register</button>
+
+            </div>
+
+            <script src="appHandler.js"></script>
+
+    </body>
+</html>
