@@ -5,53 +5,65 @@
 
     <head>
         <title>KaibaCorp Reimbursement</title>
+        <link rel="stylesheet" href="KCstyle.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 
     <body>
 
             <div id = "login" >
-
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username"><br><br>
-                <label for="password">Password:</label>
-                <input type="text" id="password" name="password"><br><br>
-                <button id = "loginBtn">Log in</button>
-                <button id = "signupBtn">Sign up</button>
-
+                <div id="wrapper fadeInDown"></div>
+                    <div id="secretform">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username"><br><br>
+                        <label for="password">Password:</label>
+                        <input type="text" id="password" name="password"><br><br>
+                        <button id = "loginBtn" type="button" class="btn btn-success">Log in</button>
+                        <button id = "signupBtn" type="button" class="btn btn-primary">Sign up</button>
+                    </div>
+                </div>
             </div>
 
 
 
             <div id = "register" style = "display: none;">
-
+                <div id="wrapper fadeInDown">
+                    <div id= "secretform">
                 <label for="rname">Name:</label>
                 <input type="text" id="rname" name="rname"><br><br>
                 <label for="rusername">Username:</label>
                 <input type="text" id="rusername" name="rusername"><br><br>
                 <label for="rpassword">Password:</label>
                 <input type="text" id="rpassword" name="rpassword"><br><br>
-                <button id = "registerBtn">Register</button>
-
+                <button id = "registerBtn" type="button" class="btn btn-success">Register</button>
+                    </div>
+                </div>
             </div>
 
 
             <div id = "empShow" style = "display: none;" >
 
-                <button class = "logoutBtn">Log out</button>
 
-                <button id = "reimApplyBtn">Apply for new Reimbursement</button>
 
-                <table id = "empReimTbl" style="width:100%">
+                <button class = "logoutBtn" type="button" class="btn btn-danger">Log out</button>
+
+                <button id = "reimApplyBtn" type="button" class="btn btn-success">Apply for new Reimbursement</button>
+
+                <table id = "empReimTbl" style="width:100%" class="table table-striped table-dark">
                     <tr><th>Amount</th><th>Description</th><th>Status</th></tr>
                 </table>
+
+
 
             </div>
 
             <div id = "manaShow" style = "display: none;" >
 
-                <button class = "logoutBtn" >Log out</button>
 
-                <table id = "ManaReimTbl" style="width:100%">
+
+                <button class = "logoutBtn" type="button" class="btn btn-danger" >Log out</button>
+
+                <table id = "ManaReimTbl" style="width:100%" class="table table-hover table-dark">
                     <tr><th>Amount</th><th>Description</th><th>Status</th><th>accept</th><th>Deny</th></tr>
                 </table>
  
@@ -60,28 +72,39 @@
 
             <div id = "reimApply" style = "display: none;" >
 
+                <div id="wrapper fadeInDown">
+                <div id="secretform">
+
                 <label for="amount">Amount:</label>
                 <input type="text" id="amount" name="amount"><br><br>
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description"><br><br>
-                <button id = "submitReimBtn">Apply</button>
-
+                <button id = "submitReimBtn" type="button" class="btn btn-success" >Apply</button>
+                </div>
+                </div>
             </div>
 
-            <div id = "accountSelector" style = "display: none;" >
-                <h4>What kind of account would you like to set up?</h4>
-                <button id = "empSelector">Employee</button><br><br>
-                <button id = "managSelector">Manager</button>
+            <div id = "accountSelector" style = "display: none;" class = "text-center">
+                <h3 class="bg-secondary text-white">What kind of account would you like to set up?</h3><br><br>
+                <button id = "empSelector" type="button" class="btn btn-warning">Employee</button><br><br>
+                <button id = "managSelector" type="button" class="btn btn-dark">Manager</button>
             </div>
 
             <div id = "managerVerfication" style = "display: none;">
-                <h4>Please enter the secret manager code</h4><br><br>
-                <label for="secret">secret:</label>
+                <div id="wrapper fadeInDown"></div>
+                    <div id="secretform">
+                <h4>Please enter the secret code : </h4><br><br>
                 <input type="text" id="secret" name="description"><br><br>
-                <button id = "secretBtn">Enter secret code!</button>
+                <button id = "secretBtn" type="button" class="btn btn-info" >Enter secret code!</button>
+                    </div>
+                </div>
             </div>
 
             <div id = "mregister" style = "display: none;">
+
+                <div id="wrapper fadeInDown"></div>
+                    <div id="secretform">
+
                     <h3>Manager Registration</h3>
                 <label for="mname">Name:</label>
                 <input type="text" id="mname" name="mname"><br><br>
@@ -89,8 +112,9 @@
                 <input type="text" id="musername" name="musername"><br><br>
                 <label for="mpassword">Password:</label>
                 <input type="text" id="mpassword" name="mpassword"><br><br>
-                <button id = "mregisterBtn">Register</button>
-
+                <button id = "mregisterBtn" type="button" class="btn btn-success">Register</button>
+                    </div>
+                </div>
             </div>
 
             <script src="appHandler.js"></script>
