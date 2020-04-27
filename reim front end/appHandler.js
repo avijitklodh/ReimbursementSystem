@@ -79,13 +79,13 @@ function loginBtnHandler(){
                             if(body[i].Status == "Pending"){
                                 buttons = 
                             `<div class = statusButtons >
-                            <td><button  class = c${buttonId} ; id = ${body[i].rId}>Approve</button></td>
+                            <td><button  class = c${buttonId} ; id = ${body[i].rId} >Approve</button></td>
                             <td><button  class = c${buttonId} ; id = ${body[i].rId}>Deny</button></td></tr></div>`;
                             }else{
                                 buttons = "<td></td><td></td>" ;
                             }
                             ManaReimTbl.innerHTML +=
-                            `<tr><td>${body[i].amount}</td>
+                            `<tr><td>$${body[i].amount}</td>
                             <td>${body[i].description}</td>
                             <td id = ${body[i].rId}stat>${body[i].Status}</td>` + buttons ;
                         }
@@ -114,7 +114,7 @@ for(let i=0;i<body.length;i++){
     // console.log(body[i].employeeId)
     if (body[i].employeeId === eId){
         empReimTbl.innerHTML +=
-        `<tr><td>${body[i].amount}</td>
+        `<tr><td>$ ${body[i].amount}</td>
         <td>${body[i].description}</td>
         <td>${body[i].Status}</td></tr>`;
     }
@@ -224,12 +224,14 @@ function submitReimBtnHandler(){
                  body: JSON.stringify(data)
                 //  `{rId=0, amount=${amountVal}, description=${descriptionVal}, Status=Approved, employeeId=${eId}}`
             });
-            empReimTbl.innerHTML = null;
+            empReimTbl.innerHTML = ` <tr><th>Amount</th><th>Description</th><th>Status</th></tr>`;
             let rerenderingEmployee = await fetch("http://localhost:8080/ReimSystem/api/reimbursements");
             let body = await rerenderingEmployee.json();
             showEmployeePage(body)
 
     }
+    amount.value = ""
+    description.value = ""
     hide(reimApply)
     appear(empShow)
 }
@@ -257,8 +259,8 @@ function logoutBtnHandler(){
     appear(login)
     hide(empShow)
     hide(manaShow)
-    ManaReimTbl.innerHTML = null;
-    empReimTbl.innerHTML = null;
+    ManaReimTbl.innerHTML = ` <tr><th>Amount</th><th>Description</th><th>Status</th></tr>`;
+    empReimTbl.innerHTML = ` <tr><th>Amount</th><th>Description</th><th>Status</th></tr>`;
 }
 
 //___________Hide element helper functions___________________________________________________________________________
@@ -333,6 +335,7 @@ secretBtn.addEventListener("click", secretBtnHandler)
 
 function secretBtnHandler(){
     if(secret.value === "12345"){
+        secret.value = ""
         appear(mregister)
         hide(managerVerfication)
     }else{
